@@ -53,10 +53,6 @@ async function CreateGood(goodname, goodtype, goodman, goodprice) {
             })
         });
     
-    
-        alert("Ошибка. Возможно, стоимость введена не в числах.");
-        return;
-    
     if (response.ok === true) {
         const good = await response.json();
         reset();

@@ -38,20 +38,25 @@ async function CreateGood(goodname, goodtype, goodman, goodprice) {
         return;
     }
     
-    const response = await fetch("api/electronicmodel", {
-        method: "POST",
-        headers: {
-            "Accept": "application/json", "Content-Type":
-                "application/json"
-        },
-        body: JSON.stringify({
+        const response = await fetch("api/electronicmodel", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json", "Content-Type":
+                    "application/json"
+            },
+            body: JSON.stringify({
 
-            name: goodname,
-            type: goodtype,
-            manufacturer: goodman,
-            price: parseInt(goodprice)
-        })
-    });
+                name: goodname,
+                type: goodtype,
+                manufacturer: goodman,
+                price: parseInt(goodprice)
+            })
+        });
+    
+    
+        alert("Ошибка. Возможно, стоимость введена не в числах.");
+        return;
+    
     if (response.ok === true) {
         const good = await response.json();
         reset();
